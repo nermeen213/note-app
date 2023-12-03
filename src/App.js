@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import Layout from './component/Layout/Layout';
 import Login from './component/Login/Login'
 import Register from './component/Register/Register'
@@ -13,7 +13,7 @@ import NoteContextProvider from './component/Context/NoteContext';
 
 function App() {
  
-  let routers =createBrowserRouter([
+  let routers =createHashRouter([
     {path:'' , element:<Layout/>,children:[
       {index:true , element:<ProtectedRoute><Home/></ProtectedRoute> },
       {path:"noteapp" , element:<ProtectedRoute><Noteapp/></ProtectedRoute> },
