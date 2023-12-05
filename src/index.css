@@ -9,14 +9,14 @@
 .background {
   width: 100%;
   background-color: #00c6c9a8;
-  min-height: 100vh;
+  min-height: 100%;
  
  
  
 
 }
 .kkk {
-  height: 500px !important;
+background-color: #913bd3 !important;
 }
 
 

@@ -13,11 +13,11 @@ export default function Noteapp({ noteobj  }) {
 
   return (
     <>
-    <div className="w-100 ">
-    <div className={`${style.note} w-100 h-25  note shadow my-3`}>
+   
+    <div className={`${style.note}   shadow my-3`}>
         <div className="note-body p-3 my-3">
           <h2 className="h4 fw-semibold m-0 font-Montserrat " >
-          <i class="fa-solid fa-thumbtack icon mx-2"></i>{noteobj.title}
+          <i className="fa-solid fa-thumbtack icon mx-2"></i>{noteobj.title}
           </h2>
           <p className={`mb-0 mt-2`}>{noteobj.content}</p>
         </div>
@@ -47,7 +47,7 @@ export default function Noteapp({ noteobj  }) {
           ></i>
         </div>
       </div>
-    </div>
+   
      
     </>
   );

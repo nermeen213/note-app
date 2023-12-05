@@ -15,10 +15,11 @@ useEffect(()=>{
 },[])
  
   return <>
-  <div className='container w-100  py-3 '>
-  <h2 className="font-Montserrat h4 heading font fs-5"><i className="fa-solid fa-folder-open"></i> My Notes</h2>
+  
+  <div className=' mx-3'>
+  <h2 className=" h4 heading font fs-5"><i className="fa-solid fa-folder-open"></i> My Notes</h2>
      
-  <div className=' hr '>
+  <div className=' hr w-100'>
 
   {Note==null ? (<div className='d-flex justify-content-center align-item-center'>
   <Audio

@@ -10,6 +10,7 @@ import axios from 'axios';
 export default function Register() {
 let navigate =useNavigate()
 const [error, seterror] = useState(null)
+const [isLoading, setisLoading] = useState(null)
 
 
   let passwordRegex= /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
@@ -18,9 +19,10 @@ const [error, seterror] = useState(null)
 
 
   async function signIn(values){
-
+    setisLoading(true)
     let {data}= await axios.post(`https://note-sigma-black.vercel.app/api/v1/users/signUp`,
     values).catch((err)=>{
+      setisLoading(false)
       seterror(err.response.data.msg)
       console.log(error);
     });
@@ -60,10 +62,9 @@ let formik =useFormik({
   return <>
   <section className='background'>
   <div className="mx-auto py-5 box ">
-      <div className="row g-0 kkk">
+      <div className="row g-0 h-100 ">
         
         <div className="col-md-8 position-relative ">
-          {/* <div className='layer position-absolute top-0 bottom-0 start-0 end-0 bg'> </div> */}
           <img src={RegisterImage} className='w-100 h-100' alt="" />
 
          
@@ -71,7 +72,7 @@ let formik =useFormik({
        </div>
         
        
-        <div className="col-md-4 py-4 px-5 bg-white h-100 ">
+        <div className="col-md-4   py-4 px-5 bg-white d-flex align-items-center justify-content-center ">
          <div className=''>
           <h2 className='font'>Create an account</h2>
           <p>Let's get started for free</p>
@@ -90,11 +91,16 @@ let formik =useFormik({
 
            <input onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.phone}  type="tel" name='phone' placeholder='phone' className='form-control mb-2 ' />
            {formik.errors.phone && formik.touched.phone?<p className='w-100 alert-danger text-danger  '>{formik.errors.phone}</p>:""}
-
-          <button type='submit' className='btn bg-main w-100 text-white '>Register</button>
+           <button type="submit" className="btn bg-main w-100 text-white ">
+              {isLoading ? (
+                <i className="fa-solid fa-spinner fa-spin"></i>
+              ) : (
+                "Register"
+              )}
+            </button>
           </form>
           <div className='d-flex pt-4  '>
-          <p className=''>Alreade have account?</p><Link className='btn mx-2 p-0' to="/login">Sign in</Link>
+          <p className=''>Alreade have account?</p><Link className='btn mx-1 p-0' to="/login">Sign in</Link>
 
           </div>
          

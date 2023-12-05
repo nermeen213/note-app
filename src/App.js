@@ -11,20 +11,24 @@ import { useContext } from 'react';
 import UserTokenProvider from './component/Context/userContext';
 import NoteContextProvider from './component/Context/NoteContext';
 
+
+let routers =createHashRouter([
+  {path:'/' , element:<Layout/>,children:[
+    {index:true , element:<ProtectedRoute><Home/></ProtectedRoute> },
+    {path:"noteapp" , element:<ProtectedRoute><Noteapp/></ProtectedRoute> },
+    {path:"register" , element:<Register/>},
+    {path:"login" , element:<Login/>},
+  ]}
+]);
+
 function App() {
  
-  let routers =createHashRouter([
-    {path:'' , element:<Layout/>,children:[
-      {index:true , element:<ProtectedRoute><Home/></ProtectedRoute> },
-      {path:"noteapp" , element:<ProtectedRoute><Noteapp/></ProtectedRoute> },
-      {path:'register' , element:<Register/>},
-      {path:'login' , element:<Login/>},
-    ]}
-  ])
+ 
  return <>
 <UserTokenProvider>
   <NoteContextProvider>
   <RouterProvider router={routers}></RouterProvider>
+  
   </NoteContextProvider>
 
 

@@ -3,6 +3,8 @@
     background-color: var(--white-900);
     border: 2px solid var(--white-700);
     border-radius: 12px;
+    width: 100% !important;
+
   }
   
   .note [class="note-body"] {
